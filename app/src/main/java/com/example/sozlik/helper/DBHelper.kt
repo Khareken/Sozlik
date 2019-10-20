@@ -13,20 +13,21 @@ class DBHelper(private val context: Context, private val fileName: String) {
         val json: String
         try {
             val inputStream: InputStream = context.assets.open(fileName)
-            val size =inputStream.available()
+            val size = inputStream.available()
             val buffer = ByteArray(size)
             inputStream.read(buffer)
             inputStream.close()
             json = String(buffer, Charset.forName("UTF-8"))
-        } catch (ex: IOException){
+        } catch (ex: IOException) {
             ex.printStackTrace()
             return ""
         }
-          return json
+        return json
     }
-      fun getWordsFromLocal(): List<WordsEntity>{
-          val json: String = readJsonFromAssets()
-          val listType =object : TypeToken<List<WordsEntity>>(){}.type
-          return GsonBuilder().create().fromJson(json,listType)
-      }
+
+    fun getWordsFromLocal(): List<WordsEntity> {
+        val json: String = readJsonFromAssets()
+        val listType = object : TypeToken<List<WordsEntity>>() {}.type
+        return GsonBuilder().create().fromJson(json, listType)
+    }
 }

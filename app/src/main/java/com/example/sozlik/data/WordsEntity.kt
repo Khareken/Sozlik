@@ -17,5 +17,9 @@ data class WordsEntity(
     var translation: String,
 
     @ColumnInfo(name = "isFavorite")
-    var isFavorite: Boolean = false
+    var isFavorite: Boolean = false,
+
+    @ColumnInfo(name = "lastAccessed")
+    var lastAccessed: Long
+
 )

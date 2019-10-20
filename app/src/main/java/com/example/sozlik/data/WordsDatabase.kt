@@ -8,14 +8,14 @@ import androidx.room.RoomDatabase
 @Database(entities = [WordsEntity::class], version = 1, exportSchema = false)
 abstract class WordsDatabase : RoomDatabase() {
     companion object {
-        private var INSTANCE: WordsDatabase? = null
+      lateinit var INSTANCE: WordsDatabase
         fun getInstance(context: Context): WordsDatabase {
-            if (INSTANCE == null) {
+            if (!::INSTANCE.isInitialized) {
                 INSTANCE =
                     Room.databaseBuilder(context, WordsDatabase::class.java, "sozlikDatabase")
                         .allowMainThreadQueries().build()
             }
-            return INSTANCE!!
+            return INSTANCE
         }
     }
         abstract fun  sozlikDao(): WordsDao
