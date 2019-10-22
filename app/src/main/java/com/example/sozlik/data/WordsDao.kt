@@ -25,6 +25,6 @@ interface WordsDao {
     @Query("select * from words where isFavorite = :isFavorite")
     fun getFavoriteWords(isFavorite: Boolean): List<WordsEntity>
 
-    @Query("select * from words where lastAccessed like :lastAccessed")
-    fun getLastAccessedWords(lastAccessed: Long): List<WordsEntity>
+//    @Query("select * from words where lastAccessed like :lastAccessed")
+//    fun getLastAccessedWords(lastAccessed: Long): List<WordsEntity>
 }

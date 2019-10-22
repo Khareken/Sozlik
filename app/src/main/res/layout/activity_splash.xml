@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <ImageView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
         android:background="#17C3B9"
         android:src="@drawable/sozlik_com" />
+
     <ImageView
         android:layout_width="match_parent"
         android:background="#17C3B9"
@@ -21,6 +20,7 @@
         android:layout_marginBottom="38dp"
         android:layout_gravity="bottom|center"
         android:src="@drawable/ic_sozlik" />
+
     <TextView
         android:textColor="#444343"
         android:layout_margin="8dp"
@@ -28,4 +28,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="www.Shagalalab.com"/>
+
 </FrameLayout>

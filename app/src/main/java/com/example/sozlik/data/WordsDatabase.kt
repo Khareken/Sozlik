@@ -9,10 +9,10 @@ import androidx.room.RoomDatabase
 abstract class WordsDatabase : RoomDatabase() {
     companion object {
       lateinit var INSTANCE: WordsDatabase
-        fun getInstance(context: Context): WordsDatabase {
+        fun getInstance(context: Context?): WordsDatabase {
             if (!::INSTANCE.isInitialized) {
                 INSTANCE =
-                    Room.databaseBuilder(context, WordsDatabase::class.java, "sozlikDatabase")
+                    Room.databaseBuilder(context!!, WordsDatabase::class.java, "sozlikDatabase")
                         .allowMainThreadQueries().build()
             }
             return INSTANCE
