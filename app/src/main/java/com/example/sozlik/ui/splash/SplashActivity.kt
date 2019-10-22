@@ -8,6 +8,7 @@ import com.example.sozlik.data.WordsDao
 import com.example.sozlik.data.WordsDatabase
 import com.example.sozlik.helper.DBHelper
 import com.example.sozlik.helper.SharedPreferenceHelper
+import com.example.sozlik.helper.helper.AppExecutors
 import com.example.sozlik.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity(), SplashView {
@@ -15,12 +16,13 @@ class SplashActivity : AppCompatActivity(), SplashView {
     lateinit var dao: WordsDao
     lateinit var sharedPreferenceHelper: SharedPreferenceHelper
     lateinit var splashPresenter: SplashPresenter
+    val appExecutors = AppExecutors()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         dao = WordsDatabase.getInstance(this).wordsDao()
         sharedPreferenceHelper = SharedPreferenceHelper(this)
-        splashPresenter = SplashPresenter(dao, sharedPreferenceHelper, gsonHelper, this)
+        splashPresenter = SplashPresenter(dao, sharedPreferenceHelper, gsonHelper, this, appExecutors)
         splashPresenter.cheking()
     }
 
