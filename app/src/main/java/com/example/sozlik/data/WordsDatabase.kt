@@ -18,5 +18,5 @@ abstract class WordsDatabase : RoomDatabase() {
             return INSTANCE
         }
     }
-        abstract fun  sozlikDao(): WordsDao
+        abstract fun  wordsDao(): WordsDao
 }
